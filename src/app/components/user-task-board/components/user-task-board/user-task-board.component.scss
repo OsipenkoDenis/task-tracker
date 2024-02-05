@@ -1,0 +1,86 @@
+.user-task-board-content {
+  display: flex;
+  flex-wrap: wrap;
+
+  .task-card-list {
+    display: flex;
+    margin-bottom: 1rem;
+    flex-wrap: wrap;
+    gap: 15px;
+    padding: 15px;
+    height: 100%;
+
+    .task-card {
+      cursor: pointer;
+      min-height: 9rem;
+      padding: 1rem;
+      box-shadow: -1px 3px 20px 1px rgba(33, 44, 55, 0.08);
+      border-radius: 0.625rem;
+      overflow: hidden;
+      min-width: 20vw;
+
+      &-selected {
+        background: #ececec;
+      }
+
+      &__header {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        margin-bottom: 1rem;
+
+        p {
+          margin-bottom: 0;
+        }
+      }
+      .task-card-description {
+        display: flex;
+        justify-content: space-between;
+        word-break: break-all;
+      }
+
+    }
+  }
+  .remove-button {
+    cursor: pointer;
+    z-index: 1000;
+    padding: 8px;
+    background-color: lightgray;
+    border-radius: 11%;
+  }
+
+  .user-task-change-action {
+    flex: 0 0 auto;
+    width: 100%;
+    margin-bottom: 0.25rem;
+    align-items: center;
+    justify-content: space-between;
+
+    &-title {
+      font-size: 1.25rem;
+    }
+
+    .change-link {
+      color: #72879E;
+      cursor: pointer;
+      box-sizing: border-box;
+    }
+  }
+}
+
+.user-task-save-button {
+  display: flex;
+  gap: 20px;
+  flex: 0 0 auto;
+  width: 100%;
+  text-align: right;
+  height: 45px;
+}
+
+.user-task-params-wrapper {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 370px);
+  width: 100%;
+  height: 100%;
+  column-gap: 5px;
+}

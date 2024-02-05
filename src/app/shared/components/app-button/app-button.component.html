@@ -1,0 +1,10 @@
+<button
+   mat-button
+   type="button"
+   class="button"
+   [class]="'button-' + color"
+   [disabled]="disabled"
+   [class.disabled]="!disabled"
+>
+  {{ title }}
+</button>

@@ -1,0 +1,24 @@
+<div class="fieldset" [class]="status">
+  <label class="fieldset-label">
+    <small class="text-secondary">{{ label }}</small>
+  </label>
+  <input
+     class='fieldset-basic-input'
+     type='date'
+     [class]="['fieldset-basic-input-' + style]"
+     [disabled]='disabled'
+     [max]='maxDate'
+     [min]='minDate'
+     [(ngModel)]='value'
+     (blur)='onControlTouch()'
+     (input)='onModelChange($event)'
+  />
+  @if((control?.invalid && (control?.dirty || control?.touched) && control.errors) || hasError){
+  <div class="fieldset-feedback">
+
+    @if(control.hasError('required')){
+  <span>Обязательное поле</span>
+  }
+</div>
+  }
+</div>

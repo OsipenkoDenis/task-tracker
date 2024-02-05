@@ -1,0 +1,86 @@
+<ng-container>
+  <div class='user-task-board-container'>
+    <app-add-task-button (createTask)='onCreateTask()'></app-add-task-button>
+    <div class='user-task-board-content'>
+        <div class='task-card-list'>
+           @for(task of (userTasks$ | async); track task; let index = $index){
+           <div
+              class='task-card'
+              [class]="{'task-card-selected': task?.task_id === selectedTask?.task_id}"
+              (click)='onSelectTask(task)'>
+             <div class="task-card__header">
+               <p>Задача {{ index + 1 }}</p>
+               <a (click)='deleteTask(task.task_id, $event)' class='remove-button'>Удалить</a>
+             </div>
+             <h4>{{ task.task_title }}</h4>
+             <h4>{{ task.task_status }}</h4>
+
+             <p class='task-card-description'>{{ task.task_description }}</p>
+             <p>{{ task.task_deadline }}</p>
+          </div>
+           }
+        </div>
+    </div>
+  </div>
+</ng-container>
+<ng-container [formGroup]='taskParametersForm'>
+  @if((selectedTask?.task_id && taskParametersFormReadOnly.value) || taskParametersFormReadOnly.value){
+  <div class='user-task-params-container'>
+    <div class='user-task-params-content'>
+       <div class='user-task-change-action'>
+          <span class='user-task-change-action-title'>Параметры задачи</span>
+       </div>
+       <div class='user-task-params-wrapper'>
+          <app-input-basic
+            [formControlName]="'task_title'"
+            [label]="'Заголовок задачи'"
+            [control]="getControl(taskParametersForm, 'task_title')"
+            [initialTouched]='true'
+            [titleCasePipe]='true'
+          ></app-input-basic>
+
+          <app-input-datepicker
+            [formControlName]="'task_deadline'"
+            [label]="'Срок выполнения'"
+            [control]="getControl(taskParametersForm, 'task_deadline')"
+            [initialTouched]='true'
+          ></app-input-datepicker>
+
+          <app-input-checkbox
+             [formControlName]='"has_meet_deadline_benefit"'
+             [control]="getControl(taskParametersForm, 'has_meet_deadline_benefit')"
+             [label]='"Наличие премии за выполнение задачи"'
+             [small]='true'
+             (change)='toggleMeetDeadlineBenefit($event)'
+             [checked]='hasMeetDeadlineBenefit'
+          ></app-input-checkbox>
+
+          <app-input-select
+             [formControlName]="'task_status'"
+             [label]="'Статус'"
+             [control]="getControl(taskParametersForm, 'task_status')"
+             [list]='TASK_STATUSES'
+             [initialTouched]='true'
+          ></app-input-select>
+
+          <app-textarea-basic
+             [formControlName]="'task_description'"
+             [label]="'Описание задачи'"
+             [control]="getControl(taskParametersForm, 'task_description')"
+             [initialTouched]='true'
+             [titleCasePipe]='true'
+          ></app-textarea-basic>
+        </div>
+
+        <div class='user-task-save-button'>
+          @if(taskParametersForm.valid && taskParametersFormReadOnly.value){
+        <app-button [color]="'primary'" [title]="'Сохранить'" (click)='isCreatingTask ? createTask() : onUpdateTask()'></app-button>
+        }
+          @if(taskParametersFormReadOnly.value && isCreatingTask){
+        <app-button [color]="'primary'" [title]="'Отмена'" (click)='onCanselProcessingTaskParams()'></app-button>
+        }
+        </div>
+    </div>
+  </div>
+  }
+</ng-container>

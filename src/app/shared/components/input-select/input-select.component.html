@@ -1,0 +1,36 @@
+<div
+   class="fieldset"
+   [class]="status">
+  <label class="fieldset-label">
+    <small class="text-secondary">{{ label }}</small>
+  </label>
+  <select
+     class="fieldset-basic-select"
+     [class]="['fieldset-basic-select-' + style]"
+     [ngModel]="control.value"
+     [disabled]="disabled"
+     (focusout)="onControlTouch()"
+     (ngModelChange)="onModelChange($event)"
+  >
+    @if(placeholder){
+    <option value="" disabled selected>{{ placeholder }}</option>
+    }
+
+    @if(allowEmptyValue){
+    <option [ngValue]="null"></option>
+    }
+
+    <option [ngValue]="null"></option>
+    @for(val of list; track val){
+    <option [ngValue]="val">{{ val }}</option>
+    }
+  </select>
+
+  @if(control?.invalid && (control?.dirty || control?.touched) && control?.errors){
+  <div class="fieldset-feedback">
+     @if(control.hasError('required')){
+         <span>Обязательное поле</span>
+  }
+  </div>
+  }
+</div>

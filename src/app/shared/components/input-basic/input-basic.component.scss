@@ -1,0 +1,54 @@
+.fieldset {
+  margin-top: 20px;
+  max-width: 320px;
+  position: relative;
+  margin-bottom: 40px;
+  height: 50px;
+
+  &-label {
+    font-weight: 400;
+    color: #343e48;
+    width: 100%;
+    position: absolute;
+    top: -12px;
+
+    small {
+      width: 100%;
+      display: block;
+      line-height: 1em;
+    }
+  }
+
+  &-basic-input {
+    width: 100%;
+
+    &-underline {
+      border-bottom: 1px solid #cad2da;
+      padding: 0.625rem 0.125rem;
+    }
+
+    &-filled {
+      margin-top: 5px;
+      background: #f2f4f7;
+      border-radius: 8px;
+      padding: 1rem 1.25rem;
+      border-color: transparent;
+    }
+  }
+
+  &-feedback {
+    margin-top: 0.25rem;
+    font-size: 0.7625rem;
+    position: absolute;
+    line-height: 11px;
+    padding-top: 2px;
+
+    & > * {
+      display: block;
+
+      & + * {
+        margin-top: 0.15rem;
+      }
+    }
+  }
+}

@@ -1,1 +1,41 @@
+@use '@angular/material/prebuilt-themes/indigo-pink.css';
 /* You can add global styles to this file, and also import other style files */
+body {
+  font-family: 'Gilroy', sans-serif !important;
+  width: 100%;
+  line-height: 1;
+  min-height: 100%;
+  background: #F2F4F7;
+  margin: 0;
+  color: #39434D;
+}
+
+// Input statuses
+.success {}
+
+.danger {
+  margin-bottom: 10px;
+
+  .text-secondary {
+    color: red !important;
+  }
+
+  .fieldset-basic-input {
+    color: red;
+    border: 1px red solid !important;
+  }
+
+  .fieldset-basic-select {
+    color: red;
+    border: 1px red solid !important;
+  }
+
+  .fieldset-feedback {
+    color: red;
+    margin-top: 0 !important;
+  }
+}
+
+textarea:focus, input:focus, select:focus{
+  outline: none;
+}

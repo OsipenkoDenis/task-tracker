@@ -1,0 +1,15 @@
+.layout-header {
+  height: 3rem;
+  padding: 0 3rem;
+  display: flex;
+  gap: 50px;
+  justify-content: end;
+  align-items: center;
+  background: linear-gradient(180.02deg, #39434D 5.74%, #0F1923 99.98%);
+  color: #FFFFFF;
+
+  .client-exit {
+    cursor: pointer;
+    width: fit-content;
+  }
+}

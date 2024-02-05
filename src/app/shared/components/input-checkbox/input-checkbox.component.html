@@ -1,0 +1,17 @@
+<div class="fieldset">
+  <input
+      class='fieldset-input-checkbox'
+      type='checkbox'
+      [checked]='checked'
+      [disabled]='isDisabled'
+      [(ngModel)]='value'
+      (ngModelChange)='onModelChange($event)'
+  />
+  <label class="fieldset-label">
+    @if(small){
+    <small>
+    {{ label }}
+    </small>
+    }
+  </label>
+</div>

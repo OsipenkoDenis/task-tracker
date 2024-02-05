@@ -1,0 +1,18 @@
+.add-button-container {
+  flex: 0 0 auto;
+  width: 33%;
+  margin-bottom: 1rem;
+
+  .add-button-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    min-height: 2rem;
+    padding: 1rem;
+    box-shadow: -1px 3px 20px 1px rgba(33, 44, 55, 0.08);
+    border-radius: 0.625rem;
+    background-color: #abbfd6;
+    margin-left: 15px;
+  }
+}

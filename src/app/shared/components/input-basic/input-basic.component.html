@@ -1,0 +1,26 @@
+<div
+   class="fieldset" [class]="status">
+  <label class="fieldset-label">
+    <small class="text-secondary">{{ label }}</small>
+  </label>
+  <input
+    class="fieldset-basic-input"
+    [type]="type"
+    [class]="['fieldset-basic-input-' + style]"
+    [ngModel]="titleCasePipe ? (value | titlecase) : value"
+    [disabled]="disabled"
+    (input)="onModelChange($event)"
+    (blur)="onControlTouch()"
+  />
+  @if(control?.invalid && (control?.dirty || control?.touched) && control?.errors) {
+  <div class="fieldset-feedback">
+    @if(control?.hasError('required')){
+       <span>Обязательное поле</span>
+     }
+
+  @if(control?.hasError('maxlength')){
+  <span> Длина должна быть не больше {{ control?.errors['maxlength']?.requiredLength }} символов</span>
+  }
+  </div>
+  }
+</div>

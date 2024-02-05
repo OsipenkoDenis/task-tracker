@@ -1,0 +1,42 @@
+.button {
+  min-width: 220px;
+  min-height: 40px;
+  font-weight: 500;
+  font-size: 1rem;
+  border-radius: 6px;
+  white-space: break-spaces;
+
+  &-primary {
+    background: #343e48;
+    color: #fff !important;
+  }
+
+  &-secondary {
+    background: #fff;
+    color: #343e48;
+    border: 1px solid #72879e;
+  }
+
+  &-helper {
+    background: #fff;
+    color: #343e48;
+    border: 1px solid #72879e;
+    font-size: 0.875rem;
+    font-weight: 400;
+    min-height: 38px;
+  }
+
+  &-aquamarine {
+    background: linear-gradient(0deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.2)), #16ADBE;
+    color: #FFFFFF;
+  }
+}
+
+
+.disabled {
+  pointer-events: all;
+}
+
+:host {
+  pointer-events: none;
+}

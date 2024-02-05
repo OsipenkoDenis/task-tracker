@@ -1,0 +1,21 @@
+<div class='dialog'>
+  <div class='close-button' mat-dialog-close>
+    <mat-icon>close</mat-icon>
+  </div>
+  <mat-dialog-content class='dialog-content'>
+    <div class='text-center'>
+      <p>{{ data.messageOne }}</p>
+    </div>
+    <mat-dialog-actions class='dialog-actions'>
+      @if(data.confirmButton){
+      <app-button
+         class="submit-button"
+         [title]='time ? time : (data.buttonTitle ? data.buttonTitle : "Да")'
+         [mat-dialog-close]='true'
+         [disabled]='!!time'
+         (click)='onConfirmAction()'
+      ></app-button>
+      }
+    </mat-dialog-actions>
+  </mat-dialog-content>
+</div>
